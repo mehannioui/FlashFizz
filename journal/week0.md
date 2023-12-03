@@ -136,3 +136,6 @@ aws budgets create-budget \
     --budget file://aws/json/budget.json \
     --notifications-with-subscribers file://aws/json/budget-notifications-with-subscribers.json
 ```
+
+## FlashFizz Logical Diagram
+![FlashFizz-Logical-Diagram](/workspace/FlashFizz/_docs/assests/FlashFizz-Logical-Diagram.png)
