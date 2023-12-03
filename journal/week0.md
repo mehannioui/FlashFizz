@@ -138,4 +138,4 @@ aws budgets create-budget \
 ```
 
 ## FlashFizz Logical Diagram
-![FlashFizz-Logical-Diagram](/workspace/FlashFizz/_docs/assests/FlashFizz-Logical-Diagram.png)
+![FlashFizz-Logical-Diagram](./_docs/assests/FlashFizz-Logical-Diagram.png)
