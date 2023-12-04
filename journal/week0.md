@@ -137,5 +137,5 @@ aws budgets create-budget \
     --notifications-with-subscribers file://aws/json/budget-notifications-with-subscribers.json
 ```
 
-## FlashFizz Logical Diagram ([Link](https://lucid.app/lucidchart/9b5e38fa-f73a-4f15-94a0-958480f9b707/edit?invitationId=inv_2decb320-a472-4d83-ae69-b3a86074867c))
+## FlashFizz Logical Diagram ([Lucid Chart Link](https://lucid.app/lucidchart/9b5e38fa-f73a-4f15-94a0-958480f9b707/edit?invitationId=inv_2decb320-a472-4d83-ae69-b3a86074867c))
 ![FlashFizz-Logical-Diagram](../_docs/assests/FlashFizz-Logical-Diagram.png)
