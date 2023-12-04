@@ -1,4 +1,4 @@
-# week 0 — Billing and Architecture
+# week 1 — Billing and Architecture
 
 
 ## Getting the AWS CLI Working
