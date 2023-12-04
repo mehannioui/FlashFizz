@@ -57,13 +57,13 @@ gp env AWS_SECRET_ACCESS_KEY=""
 gp env AWS_DEFAULT_REGION=us-east-1
 ```
 
-### Check that the AWS CLI is working and you are the expected user
+### Check that the AWS CLI is working and I am the expected user
 
 ```sh
 aws sts get-caller-identity
 ```
 
-You should see something like this:
+JSON output:
 ```json
 {
     "UserId": "AIDAVPAMTDFDIPQEA6D4V",
@@ -104,7 +104,7 @@ aws sns subscribe \
     --notification-endpoint mehannioui@gmail.com
 ```
 
-Check your email and confirm the subscription
+Check email and confirm the subscription
 
 #### Create Alarm
 
