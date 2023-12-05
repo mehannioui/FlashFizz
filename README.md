@@ -60,25 +60,25 @@ This project would not be possible without our amazing contributors and the comm
     <tr>
       <td align="center" valign="top" width="100px">
         <img src=""/><br />
-        <sub><a href="">@JamesHawkinss</a></sub>
+        <sub><a href=""></a></sub>
       </td>
       <td align="center" valign="top" width="100px">
         <img src=""/><br />
-        <sub><a href="">@JipFr</a></sub>
+        <sub><a href=""></a></sub>
       </td>
       <td align="center" valign="top" width="100px">
         <img src=""/><br />
-        <sub><a href="">@mrjvs</a></sub>
+        <sub><a href=""></a></sub>
       </td>
       <td align="center" valign="top" width="100px">
         <img src=""/><br />
-        <sub><a href="">@binaryoverload</a></sub>
+        <sub><a href=""></a></sub>
       </td>
     </tr>
     <tr>
       <td align="center" valign="top" width="100px">
         <img src=""/><br />
-        <sub><a href="">@lem6ns</a></sub>
+        <sub><a href=""></a></sub>
       </td>
     </tr>
   </tbody>
