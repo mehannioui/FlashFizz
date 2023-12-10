@@ -1,14 +1,14 @@
 import './HomeFeedPage.css';
 import React from "react";
 
-import DesktopNavigation  from 'components/DesktopNavigation';
-import DesktopSidebar     from 'components/DesktopSidebar';
-import ActivityFeed from 'components/ActivityFeed';
-import ActivityForm from 'components/ActivityForm';
-import ReplyForm from 'components/ReplyForm';
+import DesktopNavigation  from '../components/DesktopNavigation';
+import DesktopSidebar     from '../components/DesktopSidebar';
+import ActivityFeed from '../components/ActivityFeed';
+import ActivityForm from '../components/ActivityForm';
+import ReplyForm from '../components/ReplyForm';
 
-import {get} from 'lib/Requests';
-import {checkAuth} from 'lib/CheckAuth';
+// [TODO] Authenication
+import Cookies from 'js-cookie'
 
 export default function HomeFeedPage() {
   const [activities, setActivities] = React.useState([]);
@@ -19,22 +19,40 @@ export default function HomeFeedPage() {
   const dataFetchedRef = React.useRef(false);
 
   const loadData = async () => {
-    const url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/home`
-    get(url,{
-      auth: true,
-      success: function(data){
-        setActivities(data)
+    try {
+      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/home`
+      const res = await fetch(backend_url, {
+        method: "GET"
+      });
+      let resJson = await res.json();
+      if (res.status === 200) {
+        setActivities(resJson)
+      } else {
+        console.log(res)
       }
-    })
-  }
-  
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const checkAuth = async () => {
+    console.log('checkAuth')
+    // [TODO] Authenication
+    if (Cookies.get('user.logged_in')) {
+      setUser({
+        display_name: Cookies.get('user.name'),
+        handle: Cookies.get('user.username')
+      })
+    }
+  };
+
   React.useEffect(()=>{
     //prevents double call
     if (dataFetchedRef.current) return;
     dataFetchedRef.current = true;
 
     loadData();
-    checkAuth(setUser);
+    checkAuth();
   }, [])
 
   return (
@@ -50,17 +68,15 @@ export default function HomeFeedPage() {
           activity={replyActivity} 
           popped={poppedReply} 
           setPopped={setPoppedReply} 
+          setActivities={setActivities} 
+          activities={activities} 
         />
-        <div className='activity_feed'>
-          <div className='activity_feed_heading'>
-            <div className='title'>Home</div>
-          </div>
-          <ActivityFeed 
-            setReplyActivity={setReplyActivity} 
-            setPopped={setPoppedReply} 
-            activities={activities} 
-          />
-        </div>
+        <ActivityFeed 
+          title="Home" 
+          setReplyActivity={setReplyActivity} 
+          setPopped={setPoppedReply} 
+          activities={activities} 
+        />
       </div>
       <DesktopSidebar user={user} />
     </article>

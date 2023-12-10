@@ -1,10 +1,9 @@
 import './ProfileInfo.css';
 import {ReactComponent as ElipsesIcon} from './svg/elipses.svg';
-import ProfileAvatar from 'components/ProfileAvatar'
 import React from "react";
 
 // [TODO] Authenication
-import { Auth } from 'aws-amplify';
+import Cookies from 'js-cookie'
 
 export default function ProfileInfo(props) {
   const [popped, setPopped] = React.useState(false);
@@ -14,18 +13,20 @@ export default function ProfileInfo(props) {
   }
 
   const signOut = async () => {
-    try {
-        await Auth.signOut({ global: true });
-        window.location.href = "/"
-        localStorage.removeItem("access_token")
-    } catch (error) {
-        console.log('error signing out: ', error);
-    }
+    console.log('signOut')
+    // [TODO] Authenication
+    Cookies.remove('user.logged_in')
+    //Cookies.remove('user.name')
+    //Cookies.remove('user.username')
+    //Cookies.remove('user.email')
+    //Cookies.remove('user.password')
+    //Cookies.remove('user.confirmation_code')
+    window.location.href = "/"
   }
 
   const classes = () => {
     let classes = ["profile-info-wrapper"];
-    if (popped === true){
+    if (popped == true){
       classes.push('popped');
     }
     return classes.join(' ');
@@ -37,7 +38,7 @@ export default function ProfileInfo(props) {
         <button onClick={signOut}>Sign Out</button> 
       </div>
       <div className="profile-info" onClick={click_pop}>
-        <ProfileAvatar id={props.user.cognito_user_uuid} />
+        <div className="profile-avatar"></div>
         <div className="profile-desc">
           <div className="profile-display-name">{props.user.display_name || "My Name" }</div>
           <div className="profile-username">@{props.user.handle || "handle"}</div>
