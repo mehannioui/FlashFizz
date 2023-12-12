@@ -1,6 +1,6 @@
 openapi: '3.0.2'
 info:
-  title: Cruddur Backend API
+  title: FlashFizz Backend API
   version: '1.0'
     
 servers:
@@ -44,7 +44,7 @@ paths:
                   $ref: '#/components/schemas/Activity'
   /api/activities:
     post:
-      description: Create a new activitiy eg. Creating a Crud
+      description: Create a new activitiy eg. Creating a Feez
       tags:
         - activities
       requestBody:
